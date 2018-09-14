@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([2],{
 
 /***/ 110:
 /***/ (function(module, exports) {
@@ -21,8 +21,12 @@ webpackEmptyAsyncContext.id = 110;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/login/login.module": [
+	"../pages/email/email.module": [
 		269,
+		1
+	],
+	"../pages/login/login.module": [
+		270,
 		0
 	]
 };
@@ -75,9 +79,9 @@ var HomePage = /** @class */ (function () {
     }
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/stampspv/DocumentLocal/GitHub/dippinno_ionic/src/pages/home/home.html"*/'<ion-header>\n  \n</ion-header>\n\n\n<ion-content padding class="test">\n\n  <div class="bg-images" text-center >\n      \n      <img src="assets/imgs/Human.png" width= 60% > \n      <p></p>\n      <ion-spinner></ion-spinner>\n  </div>\n</ion-content>\n\n\n<style type="text/css">\n  .test{\n    background-image: linear-gradient(45deg, #ea6c6e 0%, #f6bd74 100%) !important;\n  }\n\n  </style>\n'/*ion-inline-end:"/Users/stampspv/DocumentLocal/GitHub/dippinno_ionic/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/kanapos/Documents/work4/Project/dippinno_ionic2/src/pages/home/home.html"*/'<ion-header>\n  \n</ion-header>\n\n\n<ion-content padding class="test">\n\n  <div class="bg-images" text-center >\n      \n      <img src="assets/imgs/Human.png" width= 60% > \n      <p></p>\n      <ion-spinner></ion-spinner>\n  </div>\n</ion-content>\n\n\n<style type="text/css">\n  .test{\n    background-image: linear-gradient(45deg, #ea6c6e 0%, #f6bd74 100%) !important;\n  }\n\n  </style>\n'/*ion-inline-end:"/Users/kanapos/Documents/work4/Project/dippinno_ionic2/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]])
     ], HomePage);
     return HomePage;
 }());
@@ -138,13 +142,14 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/email/email.module#EmailPageModule', name: 'EmailPage', segment: 'email', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */]
@@ -152,7 +157,7 @@ var AppModule = /** @class */ (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_7__ionic_native_http__["a" /* HTTP */]
             ]
         })
@@ -199,9 +204,9 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/stampspv/DocumentLocal/GitHub/dippinno_ionic/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/stampspv/DocumentLocal/GitHub/dippinno_ionic/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/kanapos/Documents/work4/Project/dippinno_ionic2/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/kanapos/Documents/work4/Project/dippinno_ionic2/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());

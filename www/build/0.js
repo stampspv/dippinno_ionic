@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(272);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,7 +27,7 @@ var LoginPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
             ],
         })
     ], LoginPageModule);
@@ -38,7 +38,7 @@ var LoginPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 270:
+/***/ 272:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67,11 +67,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, Bar, http) {
+    function LoginPage(navCtrl, navParams, Bar, http, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.Bar = Bar;
         this.http = http;
+        this.alertCtrl = alertCtrl;
         this.companyName = '';
         this.msg = "";
         this.btnLoginhide = false;
@@ -82,34 +83,48 @@ var LoginPage = /** @class */ (function () {
         this.btnLoginhide = !this.btnLoginhide;
     };
     LoginPage.prototype.checkLogin = function () {
-        var _this = this;
-        this.msg = 'Loading';
-        this.btnLoginhide = !this.btnLoginhide;
-        this.http.post('http://dippinno.hr:8000/api/apiCheckCompanyExist.is', { 'name': this.companyName }, {})
-            .then(function (data) {
-            // ต่อ API ได้
-            var jsonobject = JSON.parse(data.data);
-            var findCompany = jsonobject['success'];
-            console.log(findCompany);
-            if (findCompany == true) {
-                _this.msg = 'หาเจอ ทำต่อไป';
-            }
-            else {
-                _this.msg = 'That doesn\'t look like a valid Dippinno domain.';
-                _this.btnLoginhide = !_this.btnLoginhide;
-            }
-        })
-            .catch(function (error) {
-            // ต่อ API ไม่ได้
-            _this.btnLoginhide = !_this.btnLoginhide;
-            _this.msg = error.error;
-        });
+        // this.msg = 'Loading';
+        // this.btnLoginhide = !this.btnLoginhide;
+        if (this.checkCompany.value == "dippinno") {
+            // console.log('----');
+            this.navCtrl.push('EmailPage');
+        }
+        else {
+            console.log('$$$');
+            this.alertCtrl.create({
+                title: "Try again",
+                subTitle: this.checkCompany.value + " not found.",
+                buttons: ["ok"]
+            }).present();
+        }
+        // this.http.post('http://dippinno.hr:8000/api/apiCheckCompanyExist.is', {'name':this.companyName}, {})
+        //   .then(data => {
+        //     // ต่อ API ได้
+        //     var jsonobject = JSON.parse(data.data)
+        //     var findCompany = jsonobject['success'];
+        //     console.log(findCompany);
+        //     if (findCompany == true){ // หาบริษัทเจอ
+        //       this.msg = 'หาเจอ ทำต่อไป';
+        //     }else{
+        //       this.msg = 'That doesn\'t look like a valid Dippinno domain.';
+        //       this.btnLoginhide = !this.btnLoginhide;
+        //     }
+        //   })
+        //   .catch(error => {
+        //     // ต่อ API ไม่ได้
+        //     this.btnLoginhide = !this.btnLoginhide;
+        //     this.msg = error.error;
+        //   });
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("companyInput"),
+        __metadata("design:type", Object)
+    ], LoginPage.prototype, "checkCompany", void 0);
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/stampspv/DocumentLocal/GitHub/dippinno_ionic/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar hideBackButton *navbar>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="bg-login">\n  <div text-center>\n      <img id="Logo" src="assets/imgs/Human.png" width=50% style="margin-top:60px;" > \n  </div>\n\n  <ion-list >\n    <ion-item id="inputCompany">\n      <!-- <ion-label > Company </ion-label> -->\n      <ion-input text-center type="text" value="" placeholder="Company" [(ngModel)]="companyName"></ion-input>\n    </ion-item>\n    <p text-center style="color: whitesmoke">.dippinno.com</p>\n    <div>\n      <button ion-button id="button-login" (click)="checkLogin()" *ngIf="btnLoginhide">Next</button>\n    </div>\n    <div class="msg" text-center>\n      <p>{{msg}}</p>\n    </div>\n\n  </ion-list>\n    \n</ion-content>\n\n\n<style type="text/css">\n  .bg-login{\n    background-image: linear-gradient(45deg, #ea6c6e 0%, #f6bd74 100%) !important;\n  }\n\n  </style>\n\n'/*ion-inline-end:"/Users/stampspv/DocumentLocal/GitHub/dippinno_ionic/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/Users/kanapos/Documents/work4/Project/dippinno_ionic2/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar hideBackButton *navbar>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="bg-login">\n  <div text-center>\n      <img id="Logo" src="assets/imgs/Human.png" width=50% style="margin-top:60px;" > \n  </div>\n\n  <ion-list >\n    <ion-item id="inputCompany">\n      <!-- <ion-label > Company </ion-label> -->\n      <ion-input #companyInput text-center type="text" value="" placeholder="Company" [(ngModel)]="companyName"></ion-input>\n    </ion-item>\n    <p text-center style="color: whitesmoke">.dippinno.com</p>\n    <div>\n      <button ion-button id="button-login" (click)="checkLogin()" *ngIf="btnLoginhide">Next</button>\n    </div>\n    <div class="msg" text-center>\n      <p>{{msg}}</p>\n    </div>\n\n  </ion-list>\n    \n</ion-content>\n\n\n<style type="text/css">\n  .bg-login{\n    background-image: linear-gradient(45deg, #ea6c6e 0%, #f6bd74 100%) !important;\n  }\n\n  </style>\n\n'/*ion-inline-end:"/Users/kanapos/Documents/work4/Project/dippinno_ionic2/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__["a" /* HTTP */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__["a" /* HTTP */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], LoginPage);
     return LoginPage;
 }());
