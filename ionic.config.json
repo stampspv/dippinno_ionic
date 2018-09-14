@@ -1,0 +1,7 @@
+{
+  "name": "dippinno",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
