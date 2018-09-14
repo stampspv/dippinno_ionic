@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'page-home',
@@ -7,11 +8,14 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController , private statusBar: StatusBar) {
+    
+    statusBar.hide();
 
     setTimeout( () => {
       console.log('pass');
-     }, 10000);
+      this.navCtrl.push('LoginPage');
+     }, 3000);
 
   }
 
