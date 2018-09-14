@@ -20,11 +20,14 @@
   <ion-list >
     <ion-item id="inputCompany">
       <!-- <ion-label > Company </ion-label> -->
-      <ion-input text-center type="text" value="" placeholder="Company" ></ion-input>
+      <ion-input text-center type="text" value="" placeholder="Company" [(ngModel)]="companyName"></ion-input>
     </ion-item>
     <p text-center style="color: whitesmoke">.dippinno.com</p>
     <div>
-      <button ion-button id="button-login"  >Next</button>
+      <button ion-button id="button-login" (click)="checkLogin()" *ngIf="btnLoginhide">Next</button>
+    </div>
+    <div class="msg" text-center>
+      <p>{{msg}}</p>
     </div>
 
   </ion-list>
