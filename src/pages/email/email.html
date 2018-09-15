@@ -1,0 +1,42 @@
+<!--
+  Generated template for the EmailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+
+  <ion-navbar hideBackButton *navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="email">
+  <div text-center>
+      <img src="assets/imgs/Human.png" width=50% style="margin-top:60px;" > 
+  </div>
+
+  <ion-list>
+    <ion-item id="inputEmail">
+      <ion-input #inputEmail type="email" value="" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item id="inputPassword">
+        <ion-input #inputPassword type="password" value="" placeholder="Password"></ion-input>
+      </ion-item>
+  </ion-list>
+
+  <div>
+    <button (click)="checkLogin()" ion-button id="btn-confirm">Confirm</button>
+  </div>
+    
+</ion-content>
+
+
+<style type="text/css">
+  .email{
+    background-image: linear-gradient(45deg, #ea6c6e 0%, #f6bd74 100%) !important;
+  }
+
+  </style>
