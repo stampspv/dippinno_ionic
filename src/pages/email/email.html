@@ -19,16 +19,16 @@
 
   <ion-list>
     <ion-item id="inputEmail">
-      <ion-input  type="email" value="" placeholder="Email"></ion-input>
+      <ion-input #inputEmail type="email" value="" placeholder="Email"></ion-input>
     </ion-item>
 
     <ion-item id="inputPassword">
-        <ion-input  type="password" value="" placeholder="Password"></ion-input>
+        <ion-input #inputPassword type="password" value="" placeholder="Password"></ion-input>
       </ion-item>
   </ion-list>
 
   <div>
-    <button ion-button id="btn-confirm">Confirm</button>
+    <button (click)="checkLogin()" ion-button id="btn-confirm">Confirm</button>
   </div>
     
 </ion-content>

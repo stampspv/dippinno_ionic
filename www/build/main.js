@@ -1,4 +1,4 @@
-webpackJsonp([2],{
+webpackJsonp([3],{
 
 /***/ 110:
 /***/ (function(module, exports) {
@@ -21,12 +21,16 @@ webpackEmptyAsyncContext.id = 110;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/email/email.module": [
+	"../pages/dashboard/dashboard.module": [
 		269,
+		2
+	],
+	"../pages/email/email.module": [
+		270,
 		1
 	],
 	"../pages/login/login.module": [
-		270,
+		271,
 		0
 	]
 };
@@ -144,6 +148,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/dashboard/dashboard.module#DashboardPageModule', name: 'DashboardPage', segment: 'dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/email/email.module#EmailPageModule', name: 'EmailPage', segment: 'email', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
                     ]
